@@ -39,9 +39,6 @@ If you want to build and install this extension from the source code:
    ```
 5. Install the generated `.vsix` file in VS Code (Extensions Sidebar > `...` > Install from VSIX...).
 
-## Project Structure Explained
-
-Curious how this works under the hood? Check out the included [EXPLANATION.md](EXPLANATION.md) for a detailed, beginner-friendly breakdown of every file and concept used in this project!
 
 ## Architecture
 
@@ -51,3 +48,4 @@ This extension executes `child_process.exec()` to run the Perforce CLI in the ba
 
 ### 0.0.1
 Initial release with `edit`, `add`, and `revert` commands.
+
