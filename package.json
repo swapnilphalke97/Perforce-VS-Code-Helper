@@ -1,0 +1,89 @@
+{
+  "name": "p4-vscode-helper",
+  "displayName": "Perforce Helper",
+  "description": "VS Code extension to quickly checkout/edit files in Perforce",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:p4-vscode-helper.edit",
+    "onCommand:p4-vscode-helper.add",
+    "onCommand:p4-vscode-helper.revert"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "p4-vscode-helper.edit",
+        "title": "Perforce: Checkout (Edit) Current File"
+      },
+      {
+        "command": "p4-vscode-helper.add",
+        "title": "Perforce: Add Current File"
+      },
+      {
+        "command": "p4-vscode-helper.revert",
+        "title": "Perforce: Revert Current File"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "resourceScheme == file",
+          "command": "p4-vscode-helper.edit",
+          "group": "perforce@1"
+        },
+        {
+          "when": "resourceScheme == file",
+          "command": "p4-vscode-helper.add",
+          "group": "perforce@2"
+        },
+        {
+          "when": "resourceScheme == file",
+          "command": "p4-vscode-helper.revert",
+          "group": "perforce@3"
+        }
+      ],
+      "explorer/context": [
+        {
+          "when": "resourceScheme == file",
+          "command": "p4-vscode-helper.edit",
+          "group": "perforce@1"
+        },
+        {
+          "when": "resourceScheme == file",
+          "command": "p4-vscode-helper.add",
+          "group": "perforce@2"
+        },
+        {
+          "when": "resourceScheme == file",
+          "command": "p4-vscode-helper.revert",
+          "group": "perforce@3"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "p4-vscode-helper.edit",
+        "key": "ctrl+k e",
+        "mac": "cmd+k e",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+    "@types/node": "18.x",
+    "typescript": "^5.1.0"
+  }
+}
